@@ -20,21 +20,19 @@ if (mysqli_connect_errno())
   }
 
  else {
-    printf("Connected to the database : "+ $dbname);
+    printf("Connected to the database : "+ $sampledb);
 	
 	
-	$query = mysqli_query($connection,"SELECT * from loadtable");
+	$query = mysqli_query($connection,"SELECT * from employees");
 $values = "";
 echo "<br>";
 while($row = mysqli_fetch_assoc($query))
 {
-    $value1 = $row['id'];
-    $value2 = $row['name'];
-    $value3 = $row['number'];
-    $value4 = $row['email'];
-
+    $value1 = $row['name'];
+    $value2 = $row['age'];
+    
     //notice the '.' below.
-    $values .= "<tr><td>".$value1."</td><td>".$value2."</td><td>".$value3."</td><td>".$value4."</td></tr>";
+    $values .= "<tr><td>".$value1."</td><td>".$value2."</td><td>".
 	echo "<br>";
 }
 echo $values;
